@@ -42,6 +42,14 @@
     right: 20px !important;
   }
 
+  .joke-category {
+    display: none !important;
+  }
+
+  .mobile-category {
+    display: block !important;
+  }
+
 }
 
 ::-webkit-scrollbar {
@@ -188,13 +196,12 @@ body {
 }
 
 .ui-categories {
-  height: 28px;
   width: 100%;
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  flex-wrap: wrap;
   margin-top: 10px;
-  margin-bottom: 10px;
 }
 
 .ui-category {
@@ -213,6 +220,7 @@ body {
   user-select: none;
   cursor: pointer;
   transition: all .3s ease-in-out;
+  margin-bottom: 10px;
 }
 
 .ui-category-chosen {
@@ -428,4 +436,11 @@ body {
 
 .jokes {
   width: 100%;
+}
+
+.mobile-category {
+  display: none;
+  position: static;
+  width: min-content;
+  margin-top: 10px;
 }

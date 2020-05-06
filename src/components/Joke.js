@@ -4,7 +4,7 @@ import Message from "../media/message.svg";
 class Joke extends React.Component {
 
     handleHeart = () => {
-        if(!this.props.data.favourite) {
+        if (!this.props.data.favourite) {
             this.props.addFavourite(this.props.data);
         } else {
             this.props.removeFavourite(this.props.data);
@@ -34,7 +34,10 @@ class Joke extends React.Component {
                                     <p className="joke-update">
                                         Last update:
                                         &nbsp;
-                                        {Math.ceil((Date.now() - new Date(this.props.data.updated_at)) / 3600000)}
+                                        {Math.ceil((Date.now() -
+                                            new Date(this.props.data.updated_at.split(".")[0]
+                                                .replace(' ', 'T')))
+                                            / 3600000)}
                                         &nbsp;
                                         hours ago
                                     </p>
@@ -44,6 +47,11 @@ class Joke extends React.Component {
                                         </div>
                                         : <React.Fragment/>}
                                 </div>
+                                {this.props.data.categories.length > 0 ?
+                                    <div className="joke-category mobile-category">
+                                        {this.props.data.categories[0]}
+                                    </div>
+                                    : <React.Fragment/>}
                             </div>
                         </div>
                     </div>

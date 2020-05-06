@@ -25,7 +25,10 @@ class Favourite extends React.Component {
                                     <p className="joke-update">
                                         Last update:
                                         &nbsp;
-                                        {Math.ceil((Date.now() - new Date(this.props.data.updated_at)) / 3600000)}
+                                        {Math.ceil((Date.now() -
+                                            new Date(this.props.data.updated_at.split(".")[0]
+                                                .replace(' ', 'T')))
+                                            / 3600000)}
                                         &nbsp;
                                         hours ago
                                     </p>
