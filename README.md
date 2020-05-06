@@ -1,4 +1,6 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# MacPaw Internship Jokes App
+
+Written by Arthur Ladchenko
 
 ## Available Scripts
 
