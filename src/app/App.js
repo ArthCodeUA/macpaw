@@ -92,7 +92,7 @@ class App extends React.Component {
                     this.state.currentJokes.unshift(data);
                     this.setState(this.state);
                     this.openSnackbar("Random joke added successfully!");
-                }, err => this.openSnackbar(err));
+                }, err => this.openSnackbar(err.toString()));
                 break;
             case "category":
                 JokeAPI.getJoke("jokes/random?category=" + this.state.category, data => {
@@ -100,16 +100,17 @@ class App extends React.Component {
                     this.state.currentJokes.unshift(data);
                     this.setState(this.state);
                     this.openSnackbar("Joke added successfully with category " + this.state.category + "!");
-                }, err => this.openSnackbar(err));
+                }, err => this.openSnackbar(err.toString()));
                 break;
             case "search":
                 JokeAPI.getJoke("jokes/search?query=" + this.state.query, data => {
+                    console.log(data);
                     for (let joke of data.result) {
                         joke.favourite = this.isFavourite(joke.id);
                     }
                     this.setState({currentJokes: data.result.concat(this.state.currentJokes)});
                     this.openSnackbar(data.total + " jokes added successfully by query " + this.state.query + "!");
-                }, err => this.openSnackbar(err));
+                }, err => this.openSnackbar(err.toString()));
                 break;
             default:
                 this.openSnackbar("Type of joke search not found!");
