@@ -364,7 +364,7 @@ body {
   width: 100%;
   color: #333333;
   margin: 0 0 28px 0;
-  word-break: break-all;
+  word-break: break-word;
 }
 
 .joke-meta {
